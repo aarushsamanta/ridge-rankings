@@ -5,11 +5,15 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "dist/client" }
+    },
+    {
+      "src": "api/ssr.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/api/ssr" }
+    { "src": "^/assets/(.*)$", "dest": "/assets/$1" },
+    { "src": "^/api/(.*)$", "dest": "/api/$1" },
+    { "src": "^/(.*)$", "dest": "/api/ssr" }
   ]
 }
