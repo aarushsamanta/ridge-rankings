@@ -5,6 +5,8 @@ import { nitro } from "nitro/vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
+import { cloudflare } from "@cloudflare/vite-plugin";
+
 export default defineConfig({
   plugins: [
     tailwindcss(),
@@ -18,8 +20,12 @@ export default defineConfig({
         },
       },
     }),
-    nitro({ preset: "vercel" }),
     viteReact(),
+    cloudflare({
+      viteEnvironment: {
+        name: "ssr"
+      }
+    }),
   ],
   resolve: {
     alias: {
