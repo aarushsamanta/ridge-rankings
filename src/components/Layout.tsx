@@ -1,5 +1,5 @@
 import { Link, useRouter } from "@tanstack/react-router";
-import { History, LayoutDashboard, LogOut, Shield, User } from "lucide-react";
+import { History, Trophy, LogOut, Shield, User } from "lucide-react";
 import { PawnIcon } from "@/components/PawnIcon";
 import { useAuth } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -29,7 +29,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </Link>
           {user && (
             <nav className="flex items-center gap-1">
-              <NavLink to="/" icon={<LayoutDashboard className="w-4 h-4" />} label="Leaderboard" />
+              <NavLink to="/" icon={<Trophy className="w-4 h-4" />} label="Leaderboard" />
               <NavLink to="/matches" icon={<History className="w-4 h-4" />} label="Matches" />
               <NavLink to="/profile" icon={<User className="w-4 h-4" />} label="Profile" />
               {isAdmin && <NavLink to="/admin" icon={<Shield className="w-4 h-4" />} label="Admin" />}
