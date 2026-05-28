@@ -1,16 +1,25 @@
 import { LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PawnIcon } from "@/components/PawnIcon";
-import { lovable } from "@/integrations/lovable";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 export function SignInGate() {
   const handleSignIn = async () => {
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirectTo: window.location.origin,
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: window.location.origin,
+      },
     });
-    if (result.error) {
-      toast.error("Sign-in failed", { description: result.error.message });
+
+    if (error) {
+      toast.error("Sign-in failed", { description: error.message });
+      return;
+    }
+
+    if (data?.url) {
+      window.location.assign(data.url);
     }
   };
 
