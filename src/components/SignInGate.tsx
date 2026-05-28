@@ -1,13 +1,13 @@
 import { LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PawnIcon } from "@/components/PawnIcon";
-import { auth } from "@/integrations/auth";
+import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
 
 export function SignInGate() {
   const handleSignIn = async () => {
-    const result = await auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
+    const result = await lovable.auth.signInWithOAuth("google", {
+      redirectTo: window.location.origin,
     });
     if (result.error) {
       toast.error("Sign-in failed", { description: result.error.message });
