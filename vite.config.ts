@@ -22,7 +22,7 @@ export default defineConfig({
       preset: "vercel",
       bundledDeps: ["tslib"],
       rollupConfig: {
-        external: [],
+        external: ["node:*"],
         output: {
           inlineDynamicImports: true,
         },
