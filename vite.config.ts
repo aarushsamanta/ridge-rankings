@@ -20,6 +20,7 @@ export default defineConfig({
     }),
     nitro({
       preset: "vercel",
+      bundledDeps: ["tslib"],
       rollupConfig: {
         external: [],
         output: {
