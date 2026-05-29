@@ -9,7 +9,7 @@ export function SignInGate() {
     const { error, data } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://ridge-rankings.vercel.app",
+        redirectTo: window.location.origin,
       },
     });
 
@@ -18,7 +18,6 @@ export function SignInGate() {
       return;
     }
   };
-
 
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
