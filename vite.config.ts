@@ -20,12 +20,11 @@ export default defineConfig({
     }),
     nitro({
       preset: "vercel",
-      bundledDeps: ["tslib"],
-      noExternal: ["tslib"],
+      // tslib is properly handled by Nitro's automatic dependency tracing
+      // Rollup configuration for proper module resolution
       rollupConfig: {
         external: ["node:*"],
         output: {
-          inlineDynamicImports: true,
           format: "esm",
         },
       },

@@ -965,7 +965,7 @@ let serverEntryPromise;
 async function getServerEntry() {
   if (!serverEntryPromise) {
     serverEntryPromise = Promise.resolve().then(function() {
-      return serverBoZ6M;
+      return serverG3uEf56c;
     }).then((n2) => n2.s).then(
       (m2) => m2.default ?? m2
     );
@@ -20132,7 +20132,7 @@ function getResponse() {
 var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 async function getStartManifest(matchedRoutes) {
   const { tsrStartManifest: tsrStartManifest2 } = await Promise.resolve().then(function() {
-    return _tanstackStartManifest_vCCN4I6P1;
+    return _tanstackStartManifest_vCzBKwLmx;
   });
   const startManifest = tsrStartManifest2();
   let routes = startManifest.routes;
@@ -21206,10 +21206,10 @@ var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
     Promise.resolve().then(function() {
-      return router6L4Ca8K_;
+      return routerBmnRBDAa;
     }).then((n2) => n2.r),
     Promise.resolve().then(function() {
-      return startD43ZDsjY;
+      return startDUdfFoZ6;
     }),
     Promise.resolve().then(function() {
       return emptyPluginAdaptersBFgPZ6_d;
@@ -21517,13 +21517,13 @@ const server = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   createServerEntry,
   default: server_default
 }, Symbol.toStringTag, { value: "Module" }));
-const serverBoZ6M = /* @__PURE__ */ Object.freeze({
+const serverG3uEf56c = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   c: createMiddleware,
   s: server
 });
-const tsrStartManifest = () => ({ routes: { __root__: { filePath: "/workspaces/ridge-rankings/src/routes/__root.tsx", children: ["/", "/admin", "/matches", "/profile", "/player/$id"], preloads: ["/assets/index-BR2lxkhA.js"], scripts: [{ attrs: { type: "module", async: true, src: "/assets/index-BR2lxkhA.js" } }] }, "/": { filePath: "/workspaces/ridge-rankings/src/routes/index.tsx", children: void 0, preloads: ["/assets/index-CqSsPfwF.js", "/assets/SignInGate-B5yFJ_d_.js", "/assets/tabs-Dd7nn0Wj.js", "/assets/elo-BYOTkrRm.js"] }, "/admin": { filePath: "/workspaces/ridge-rankings/src/routes/admin.tsx", children: void 0, preloads: ["/assets/admin-BnE69-hW.js", "/assets/SignInGate-B5yFJ_d_.js", "/assets/tabs-Dd7nn0Wj.js", "/assets/elo-BYOTkrRm.js"] }, "/matches": { filePath: "/workspaces/ridge-rankings/src/routes/matches.tsx", children: void 0, preloads: ["/assets/matches-CsiaMfo2.js", "/assets/SignInGate-B5yFJ_d_.js"] }, "/profile": { filePath: "/workspaces/ridge-rankings/src/routes/profile.tsx", children: void 0, preloads: ["/assets/profile-B8cBUov5.js", "/assets/SignInGate-B5yFJ_d_.js", "/assets/elo-BYOTkrRm.js"] }, "/player/$id": { filePath: "/workspaces/ridge-rankings/src/routes/player.$id.tsx", children: void 0, preloads: ["/assets/player._id-DcZ8ZN8K.js", "/assets/SignInGate-B5yFJ_d_.js", "/assets/elo-BYOTkrRm.js"] } } });
-const _tanstackStartManifest_vCCN4I6P1 = /* @__PURE__ */ Object.freeze({
+const tsrStartManifest = () => ({ routes: { __root__: { filePath: "/workspaces/ridge-rankings/src/routes/__root.tsx", children: ["/", "/admin", "/matches", "/profile", "/player/$id"], preloads: ["/assets/index-DG31YQrK.js"], scripts: [{ attrs: { type: "module", async: true, src: "/assets/index-DG31YQrK.js" } }] }, "/": { filePath: "/workspaces/ridge-rankings/src/routes/index.tsx", children: void 0, preloads: ["/assets/index-BfRl098b.js", "/assets/SignInGate-VS-nAxZ5.js", "/assets/tabs-CvpXK4BD.js", "/assets/elo-BYOTkrRm.js"] }, "/admin": { filePath: "/workspaces/ridge-rankings/src/routes/admin.tsx", children: void 0, preloads: ["/assets/admin-C_6wUkoM.js", "/assets/SignInGate-VS-nAxZ5.js", "/assets/tabs-CvpXK4BD.js", "/assets/elo-BYOTkrRm.js"] }, "/matches": { filePath: "/workspaces/ridge-rankings/src/routes/matches.tsx", children: void 0, preloads: ["/assets/matches-DAyMDpUz.js", "/assets/SignInGate-VS-nAxZ5.js"] }, "/profile": { filePath: "/workspaces/ridge-rankings/src/routes/profile.tsx", children: void 0, preloads: ["/assets/profile-BF5XnvpT.js", "/assets/SignInGate-VS-nAxZ5.js", "/assets/elo-BYOTkrRm.js"] }, "/player/$id": { filePath: "/workspaces/ridge-rankings/src/routes/player.$id.tsx", children: void 0, preloads: ["/assets/player._id-B_Qm1ijZ.js", "/assets/SignInGate-VS-nAxZ5.js", "/assets/elo-BYOTkrRm.js"] } } });
+const _tanstackStartManifest_vCzBKwLmx = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   tsrStartManifest
 });
@@ -49556,7 +49556,7 @@ function RootComponent() {
   ] }) });
 }
 const $$splitComponentImporter$4 = () => Promise.resolve().then(function() {
-  return profileBq_L17YD;
+  return profileDD4w7Woa;
 });
 const Route$4 = createFileRoute("/profile")({
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
@@ -49597,7 +49597,7 @@ const Button = reactExports.forwardRef(
 );
 Button.displayName = "Button";
 const $$splitComponentImporter$3 = () => Promise.resolve().then(function() {
-  return matchesCQZRQRFX;
+  return matchesCSf0j1AC;
 });
 const Route$3 = createFileRoute("/matches")({
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
@@ -49684,19 +49684,19 @@ function MatchHistory$1({
   ] });
 }
 const $$splitComponentImporter$2 = () => Promise.resolve().then(function() {
-  return adminDcrl4Fdx;
+  return adminCmt1B9N7;
 });
 const Route$2 = createFileRoute("/admin")({
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
 const $$splitComponentImporter$1 = () => Promise.resolve().then(function() {
-  return indexBDLgllCS;
+  return indexBARPkCCf;
 });
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
 const $$splitComponentImporter = () => Promise.resolve().then(function() {
-  return player__idDfny0FoV;
+  return player__idDhZjIJoV;
 });
 const Route2 = createFileRoute("/player/$id")({
   component: lazyRouteComponent($$splitComponentImporter, "component")
@@ -49748,7 +49748,7 @@ const router = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   __proto__: null,
   getRouter
 }, Symbol.toStringTag, { value: "Module" }));
-const router6L4Ca8K_ = /* @__PURE__ */ Object.freeze({
+const routerBmnRBDAa = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   B: Button,
   M: MatchHistory$1,
@@ -49798,7 +49798,7 @@ const errorMiddleware = createMiddleware().server(async ({ next }) => {
 const startInstance = createStart(() => ({
   requestMiddleware: [errorMiddleware]
 }));
-const startD43ZDsjY = /* @__PURE__ */ Object.freeze({
+const startDUdfFoZ6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   startInstance
 });
@@ -49878,7 +49878,7 @@ function SignInGate() {
     const { error, data } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "https://ridge-rankings.vercel.app"
+        redirectTo: window.location.origin
       }
     });
     if (error) {
@@ -50007,7 +50007,7 @@ function RatingCard$1({
     ] })
   ] });
 }
-const profileBq_L17YD = /* @__PURE__ */ Object.freeze({
+const profileDD4w7Woa = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   component: ProfilePage
 });
@@ -50102,7 +50102,7 @@ function MatchHistory({
     ] }) })
   ] });
 }
-const matchesCQZRQRFX = /* @__PURE__ */ Object.freeze({
+const matchesCSf0j1AC = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   MatchHistory,
   component: MatchesPage
@@ -56269,7 +56269,7 @@ function Admins({
     ] })
   ] });
 }
-const adminDcrl4Fdx = /* @__PURE__ */ Object.freeze({
+const adminCmt1B9N7 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   component: AdminPage
 });
@@ -56877,7 +56877,7 @@ function Leaderboard() {
     ] })
   ] });
 }
-const indexBDLgllCS = /* @__PURE__ */ Object.freeze({
+const indexBARPkCCf = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   component: Index
 });
@@ -56961,7 +56961,7 @@ function RatingCard({
     ] })
   ] });
 }
-const player__idDfny0FoV = /* @__PURE__ */ Object.freeze({
+const player__idDhZjIJoV = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   component: PlayerPage
 });
