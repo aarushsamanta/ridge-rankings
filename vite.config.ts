@@ -20,14 +20,18 @@ export default defineConfig({
     }),
     nitro({
       preset: "vercel",
-      // tslib is properly handled by Nitro's automatic dependency tracing
-      // Rollup configuration for proper module resolution
+      // Configure rollup to inline everything including tslib helpers
       rollupConfig: {
-        external: ["node:*"],
         output: {
           format: "esm",
+          // This inlines all imports to prevent module resolution at runtime
+          inlineDynamicImports: true,
         },
+        // Only mark node: modules as external
+        external: ["node:*"],
       },
+      // Ensure tslib is bundled, not imported as external
+      externals: [],
     }),
     viteReact(),
   ],
