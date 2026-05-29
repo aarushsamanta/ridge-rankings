@@ -13,9 +13,18 @@ function createSupabaseClient() {
       ...(!SUPABASE_URL ? ['SUPABASE_URL'] : []),
       ...(!SUPABASE_PUBLISHABLE_KEY ? ['SUPABASE_PUBLISHABLE_KEY'] : []),
     ];
-    const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Connect Supabase in Lovable Cloud.`;
+    const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Set these in Vercel Settings → Environment Variables.`;
     console.error(`[Supabase] ${message}`);
-    throw new Error(message);
+    // Return a lazy proxy that only throws when used so the server function doesn't crash at import time.
+    const stub: any = new Proxy({}, {
+      get(_, prop) {
+        throw new Error(`[Supabase] Cannot access client because environment variables are missing: ${missing.join(', ')}.`);
+      },
+      apply() {
+        throw new Error(`[Supabase] Cannot access client because environment variables are missing: ${missing.join(', ')}.`);
+      },
+    });
+    return stub as unknown as ReturnType<typeof createSupabaseClient>;
   }
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {

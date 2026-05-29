@@ -14,9 +14,18 @@ function createSupabaseAdminClient() {
       ...(!SUPABASE_URL ? ['SUPABASE_URL'] : []),
       ...(!SUPABASE_SERVICE_ROLE_KEY ? ['SUPABASE_SERVICE_ROLE_KEY'] : []),
     ];
-    const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Connect Supabase in Lovable Cloud.`;
+    const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Set these in Vercel Settings → Environment Variables.`;
     console.error(`[Supabase] ${message}`);
-    throw new Error(message);
+    // Return a lazy proxy that throws when methods are invoked instead of throwing at import time.
+    const stub: any = new Proxy({}, {
+      get(_, prop) {
+        throw new Error(`[Supabase] supabaseAdmin is unavailable because environment variables are missing: ${missing.join(', ')}.`);
+      },
+      apply() {
+        throw new Error(`[Supabase] supabaseAdmin is unavailable because environment variables are missing: ${missing.join(', ')}.`);
+      },
+    });
+    return stub as unknown as ReturnType<typeof createSupabaseAdminClient>;
   }
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
