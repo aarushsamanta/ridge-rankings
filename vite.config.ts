@@ -21,10 +21,12 @@ export default defineConfig({
     nitro({
       preset: "vercel",
       bundledDeps: ["tslib"],
+      noExternal: ["tslib"],
       rollupConfig: {
         external: ["node:*"],
         output: {
           inlineDynamicImports: true,
+          format: "esm",
         },
       },
     }),
