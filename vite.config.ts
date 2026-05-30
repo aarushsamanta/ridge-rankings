@@ -18,21 +18,21 @@ export default defineConfig({
         },
       },
     }),
-    {
-      name: "inline-tslib",
-      apply: "build",
-      enforce: "post",
-      generateBundle(options, bundle) {
-        // For each JavaScript file in the bundle, inline tslib imports
-        for (const fileName in bundle) {
-          const file = bundle[fileName];
-          if (file.type === "asset") continue;
-          
-          if (file.code && file.code.includes("from \"tslib\"")) {
-            // Replace tslib imports with inline tslib code
-            file.code = file.code.replace(
-              /import\s*{\s*__awaiter[\s\S]*?\s*}\s*from\s*["']tslib["']/g,
-              `const __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    nitro({
+      preset: "vercel",
+      rollupConfig: {
+        output: {
+          format: "esm",
+          inlineDynamicImports: true,
+        },
+        external: ["node:*"],
+        plugins: [
+          {
+            name: "remove-tslib-import",
+            transform(code) {
+              // Remove tslib imports and add inline helpers
+              if (code.includes('from "tslib"') || code.includes("from 'tslib'")) {
+                const tslibHelpers = `const __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -71,22 +71,23 @@ const __spreadArray = (this && this.__spreadArray) || function (to, from, pack) 
         }
     }
     return to.concat(ar || Array.prototype.slice.call(from));
-};`
-            );
-          }
-        }
-      },
-    },
-    nitro({
-      preset: "vercel",
-      rollupConfig: {
-        output: {
-          format: "esm",
-          // Inline all imports to prevent module resolution at runtime
-          inlineDynamicImports: true,
-        },
-        // Only mark node: modules as external, treat everything else as bundle targets
-        external: ["node:*"],
+};`;
+
+                // Replace the import statement with helper definitions
+                const newCode = code
+                  .replace(/import\s*{\s*__awaiter[^}]*}\s*from\s*["']tslib["'];?/g, tslibHelpers)
+                  .replace(/import\s*{\s*__rest[^}]*}\s*from\s*["']tslib["'];?/g, "")
+                  .replace(/import\s*{\s*__assign[^}]*}\s*from\s*["']tslib["'];?/g, "")
+                  .replace(/import\s*{\s*__spreadArray[^}]*}\s*from\s*["']tslib["'];?/g, "");
+
+                return {
+                  code: newCode,
+                  map: null,
+                };
+              }
+            },
+          },
+        ],
       },
     }),
     viteReact(),
