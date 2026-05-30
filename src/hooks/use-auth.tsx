@@ -52,8 +52,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [session]);
 
   const email = session?.user?.email?.toLowerCase() ?? "";
-  const isAdmin = !!email && adminEmails.includes(email);
   const isSuperAdmin = email === SUPER_ADMIN;
+  const isAdmin = !!email && (adminEmails.includes(email) || isSuperAdmin);
 
   return (
     <Ctx.Provider
